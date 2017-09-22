@@ -7,6 +7,7 @@ applications:
   path: build/libs/service4-1.0.0.SLEUTH_DOCS.jar
   services:
     - docssleuth-rabbitmq
+    - dynatrace-dev
   env:
     SPRING_PROFILES_ACTIVE: cloud
     DEBUG: "true"

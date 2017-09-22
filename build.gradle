@@ -105,6 +105,7 @@ configure(subprojects) {
 configure(subprojects - project(':acceptance-tests')) {
 
     dependencies {
+        compile "com.dynatrace.oneagent:oneagent.adk:1.131.0.20170920-144732"
         compile "org.springframework.boot:spring-boot-starter-web"
         compile "org.springframework.cloud:spring-cloud-starter-stream-rabbit"
         compile "org.springframework.cloud:spring-cloud-sleuth-stream"
@@ -133,6 +134,7 @@ configure(project(":acceptance-tests")) {
     }
 
     dependencies {
+        compile "com.dynatrace.oneagent:oneagent.adk:1.131.0.20170920-144732"
         compile "org.aspectj:aspectjrt:1.8.8"
         compile "org.springframework.boot:spring-boot-starter-web"
         compile 'org.codehaus.groovy:groovy-all'

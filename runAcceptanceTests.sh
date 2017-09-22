@@ -4,7 +4,7 @@ set -o errexit
 
 # ======================================= FUNCTIONS START =======================================
 
-CLOUD_DOMAIN=${DOMAIN:-run.pivotal.io}
+CLOUD_DOMAIN=${DOMAIN:-system.pcfeu.dev.dynatracelabs.com}
 CLOUD_TARGET=api.${DOMAIN}
 CLOUD_PREFIX="docssleuth"
 
@@ -71,7 +71,7 @@ echo "Booting RabbitMQ"
 # create RabbitMQ
 APP_NAME="${CLOUD_PREFIX}-rabbitmq"
 cf s | grep ${APP_NAME} && echo "found ${APP_NAME}" && READY_FOR_TESTS="yes" ||
-    cf cs cloudamqp lemur ${APP_NAME} && echo "Started RabbitMQ" && READY_FOR_TESTS="yes"
+    cf cs p-rabbitmq standard ${APP_NAME} && echo "Started RabbitMQ" && READY_FOR_TESTS="yes"
 
 if [[ "${READY_FOR_TESTS}" == "no" ]] ; then
     echo "RabbitMQ failed to start..."
@@ -80,17 +80,17 @@ fi
 
 # ====================================================
 # Boot zipkin-stuff
-echo -e "\n\nBooting up MySQL"
-READY_FOR_TESTS="no"
-# create MySQL DB
-APP_NAME="${CLOUD_PREFIX}-mysql"
-cf s | grep ${APP_NAME} && echo "found ${APP_NAME}" && READY_FOR_TESTS="yes" ||
-    cf cs cleardb spark ${APP_NAME} && echo "Started ${APP_NAME}" && READY_FOR_TESTS="yes"
+# echo -e "\n\nBooting up MySQL"
+# READY_FOR_TESTS="no"
+# # create MySQL DB
+# APP_NAME="${CLOUD_PREFIX}-mysql"
+# cf s | grep ${APP_NAME} && echo "found ${APP_NAME}" && READY_FOR_TESTS="yes" ||
+#     cf cs cleardb spark ${APP_NAME} && echo "Started ${APP_NAME}" && READY_FOR_TESTS="yes"
 
-if [[ "${READY_FOR_TESTS}" == "no" ]] ; then
-    echo "MySQL failed to start..."
-    exit 1
-fi
+# if [[ "${READY_FOR_TESTS}" == "no" ]] ; then
+#     echo "MySQL failed to start..."
+#     exit 1
+# fi
 
 # ====================================================
 cd $root

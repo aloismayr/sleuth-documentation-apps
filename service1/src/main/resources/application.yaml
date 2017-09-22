@@ -3,7 +3,10 @@ spring:
   application:
     name: service1
   sleuth:
+    enabled: false
     sampler:
       percentage: 1.0
+  zipkin:
+    enabled: false
 
 logging.level.org.springframework.cloud.sleuth: DEBUG

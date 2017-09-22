@@ -19,8 +19,8 @@ public class Service1Controller {
 		return this.service2Client.start();
 	}
 
-	@RequestMapping("/readtimeout")
-	public String timeout() throws InterruptedException {
-		return service2Client.timeout(LocalDateTime.now().toString());
-	}
+//	@RequestMapping("/readtimeout")
+//	public String timeout() throws InterruptedException {
+//		return service2Client.timeout(LocalDateTime.now().toString());
+//	}
 }

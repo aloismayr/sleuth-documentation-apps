@@ -10,5 +10,5 @@ applications:
   env:
     SPRING_PROFILES_ACTIVE: cloud
     DEBUG: "true"
-    SERVICE3_ADDRESS: docssleuth-service3.cfapps.io
-    SERVICE4_ADDRESS: docssleuth-service4.cfapps.io
+    SERVICE3_ADDRESS: docssleuth-service3.apps.pcfeu.dev.dynatracelabs.com
+    SERVICE4_ADDRESS: docssleuth-service4.apps.pcfeu.dev.dynatracelabs.com

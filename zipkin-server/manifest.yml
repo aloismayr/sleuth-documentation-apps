@@ -7,7 +7,8 @@ applications:
   path: build/libs/zipkin-server-1.0.0.SLEUTH_DOCS.jar
   services:
     - docssleuth-rabbitmq
-    - docssleuth-mysql
+#    - docssleuth-mysql
+    - dynatrace-dev
   env:
     SPRING_PROFILES_ACTIVE: cloud
     DEBUG: "true"
